@@ -47,5 +47,6 @@ jobs:
           key: ${{ secrets.EC2_KEY }}
           script: |
             sudo docker pull ${{ secrets.DOCKER_REPOSITORY }}/${{ secrets.DOCKER_IMAGE }}
+            docker-compose pull ${{ secrets.SERVICE_NAME }}
             docker-compose up -d ${{ secrets.SERVICE_NAME }}
             docker image prune -f
