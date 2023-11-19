@@ -7,10 +7,12 @@ import lombok.Getter;
 @Getter
 public class UserAuthResponseDto {
     private String id;
+    private String name;
 
-    public static UserAuthResponseDto of(String userId){
+    public static UserAuthResponseDto of(String userId, String name){
         return UserAuthResponseDto.builder()
                 .id(userId)
+                .name(name)
                 .build();
     }
 }

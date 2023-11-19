@@ -24,13 +24,13 @@ public class UserAuthService {
 
     public UserAuthResponseDto signIn(UserSignInRequestDto userSignInRequestDto){
         User user = getUser(userSignInRequestDto.getStudentId());
-        return UserAuthResponseDto.of(user.getId());
+        return UserAuthResponseDto.of(user.getId(), user.getName());
     }
 
     public UserAuthResponseDto signUp(UserSignUpRequestDto userSignUpRequestDto){
         validateDuplicateUser(userSignUpRequestDto.getStudentId());
         User user = saveUser(userSignUpRequestDto.getStudentId(), userSignUpRequestDto.getName());
-        return UserAuthResponseDto.of(user.getId());
+        return UserAuthResponseDto.of(user.getId(), user.getName());
     }
 
     private void validateDuplicateUser(int studentId) {
